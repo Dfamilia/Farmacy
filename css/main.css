@@ -1,0 +1,50 @@
+@import url("CONST_STYLES.css");
+
+body {
+  padding-bottom: 20px;
+  font-family: "Roboto Mono", monospace;
+  color: black;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+#HOME_LOGO {
+  color: var(--pink);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  cursor: default;
+}
+
+.nav-link {
+  border-bottom: 1px solid rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
+}
+.nav-link.section:hover,
+.dropdown-item:hover {
+  border-bottom: 1px solid var(--dark-pink);
+  cursor: default;
+}
+
+.dropdown-item {
+  border-bottom: 1px solid white;
+}
+
+.dropdown-item:hover {
+  background-color: white;
+}
+
+.dropdown-item:active {
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
+  color: black;
+}
+
+#language-divisor {
+  margin: -8px;
+}
+
+#language-es:hover,
+#language-en:hover {
+  border-bottom: 1px solid var(--dark-pink);
+  cursor: pointer;
+}
