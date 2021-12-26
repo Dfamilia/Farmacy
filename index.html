@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farmacia</title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <link href="css/main.css" rel="stylesheet" />
   </head>
   <body>
@@ -85,6 +90,42 @@
           </ul>
         </div>
       </div>
+
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Login</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="login-page">
+                <form class="login-form" method="post" action="login.php">
+                  <div class="form-group">
+                    <label for="txtusuario" class="col-form-label">Usuario:</label>
+                    <input type="text" class="form-control" id="txtusuario" placeholder="Username" name="txtusuario">
+                  </div>
+                  <div class="form-group">
+                    <label for="txtpassword" class="col-form-label">Password:</label>
+                    <input type="password" class="form-control" id="txtpassword" placeholder="Password"
+                    name="txtpassword">
+                  </div>
+                  <div class="form-group">
+                    <a class="col-form-label" href="">¿Olvidaste tu contraseña?</a>
+                  </div>
+                  <div class="form-group text-center">
+                    <button class="btn btn-success" type="submit">Login</button>
+                    <button class="btn btn-danger" type="button" onclick="cleanLogin(this);">Limpiar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
     <!-- <footer
       class="d-flex flex-row align-items-center footer bg-white shadow-lg"
@@ -92,7 +133,6 @@
     >
       @UASD - Laboratorio de programacion III
     </footer> -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/main.js">
+    <script src="js/main.js"></script>
   </body>
 </html>
