@@ -1,3 +1,7 @@
+<?php 
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,14 +9,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farmacia</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <link href="css/main.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    <link href="css/main.css" rel="stylesheet" />
+    <?php
+      $toggleModal = !isset($_SESSION['username']) ? ".show();" : ".hide();";
+      echo '<script type="text/Javascript">
+        // init project
+        $(document).ready(function () {
+          // Show Login modal
+          var myModal = new bootstrap.Modal($("#myModal"));
+          myModal'.$toggleModal.'
+        });
+        </script>';
+    ?>
   </head>
   <body>
     <nav
@@ -35,16 +45,6 @@
 
         <div class="collapse navbar-collapse" id="navbarsExample05">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <div id="language" class="nav-link">
-                <span id="language-es">ES</span>
-                <span id="language-divisor">|</span>
-                <span id="language-en">EN</span>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link section" href="#">Link</a>
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle section"
@@ -61,30 +61,19 @@
             </li>
           </ul>
           <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 25px">
-            <li class="nav-item" style="display: none">
-              <button type="button" class="btn btn-outline-secondary">
-                Registrate
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                style="display: none"
-              >
-                Iniciar Session
-              </button>
-            </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="display:<?php echo (isset($_SESSION['username'])) ? 'block' : 'none'?>;">
               <a
                 class="nav-link dropdown-toggle section"
                 href="#"
                 id="dropdown05"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                >Darlin Familia</a
+                ><?php echo $_SESSION['username']; ?></a
               >
-              <ul class="dropdown-menu" aria-labelledby="dropdown05">
-                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                <li><a class="dropdown-item" href="#">Cerrar Session</a></li>
+              <ul class="dropdown-menu" aria-labelledby="dropdown05" style="left: -120px;">
+                <li><form class="dropdown-item"  method="post" action="pages/login.php" style="border: none;">
+                  <input class="btn btn-link" type="submit" name="logout" value="Cerrar Session"/>
+                </form></li>
               </ul>
             </li>
           </ul>
@@ -92,7 +81,7 @@
       </div>
 
       <!-- The Modal -->
-      <div class="modal" id="myModal">
+      <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <!-- Modal Header -->
@@ -103,7 +92,7 @@
             <!-- Modal body -->
             <div class="modal-body">
               <div class="login-page">
-                <form class="login-form" method="post" action="login.php">
+                <form class="login-form" method="post" action="pages/login.php">
                   <div class="form-group">
                     <label for="txtusuario" class="col-form-label">Usuario:</label>
                     <input type="text" class="form-control" id="txtusuario" placeholder="Username" name="txtusuario">

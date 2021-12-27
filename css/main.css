@@ -39,10 +39,6 @@ body {
   color: black;
 }
 
-#language-divisor {
-  margin: -8px;
-}
-
 #language-es:hover,
 #language-en:hover {
   border-bottom: 1px solid var(--dark-pink);
