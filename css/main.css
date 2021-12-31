@@ -20,10 +20,16 @@ body {
 .nav-link {
   border-bottom: 1px solid rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
 }
+
 .nav-link.section:hover,
 .dropdown-item:hover {
-  border-bottom: 1px solid var(--dark-pink);
-  cursor: default;
+  border-bottom: 1px solid var(--ramon-green);
+  cursor: pointer;
+}
+
+.nav-link.section:active {
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0);
 }
 
 .dropdown-item {
@@ -39,8 +45,6 @@ body {
   color: black;
 }
 
-#language-es:hover,
-#language-en:hover {
-  border-bottom: 1px solid var(--dark-pink);
-  cursor: pointer;
+.actualizarInventario {
+  width: 1000px;
 }
