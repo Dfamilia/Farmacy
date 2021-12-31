@@ -1,9 +1,13 @@
 @import url("CONST_STYLES.css");
+* {
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  padding-bottom: 20px;
   font-family: "Roboto Mono", monospace;
   color: black;
+  min-height: 100vh;
 }
 
 .navbar {
@@ -47,4 +51,23 @@ body {
 
 .actualizarInventario {
   width: 1000px;
+}
+
+#homepage {
+  background: url(../assets/homepageContent.jpg);
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  top: 57px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 10px;
+  background-color: #17395c1a !important;
 }
