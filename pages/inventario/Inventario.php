@@ -48,12 +48,11 @@ include("../../conexion.php");
 
                 <div class="collapse navbar-collapse" id="navbarsExample05">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link section" href="../accesos/MUsuario.php">Accesos</a>
+                        </li>
                         <li class="nav-item"><a class="nav-link section active" href="">Inventario</a></li>
                         <li class="nav-item"><a class="nav-link section"
                                 href="../vencimientos/vencimientos.php">Vencimientos</a></li>
-                        <li class="nav-item"><a class="nav-link section"
-                                href="Registros/Menu principal.php">Registros</a>
-                        </li>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 25px">
                         <li class="nav-item dropdown"

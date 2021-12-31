@@ -8,7 +8,7 @@ if(isset($_POST["txtusuario"])){
 	$nombre = $_POST["txtusuario"];
 	$pass = $_POST["txtpassword"];
 	
-	$query = mysqli_query($conn,"SELECT * FROM login WHERE usuario = '".$nombre."' and pass = '".$pass."'");
+	$query = mysqli_query($conn,"SELECT * FROM modulo_usuario WHERE name_user = '".$nombre."' and pass = '".$pass."'");
 	
 	if(mysqli_num_rows($query) > 0)
 	{
