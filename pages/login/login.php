@@ -1,20 +1,10 @@
 <?php
 session_start();
-
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "localdb";
-
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+include("../../conexion.php");
 
 // Action: try to log-in
 if(isset($_POST["txtusuario"])){
-	if (!$conn) 
-	{
-		die("No hay conexión: ".mysqli_connect_error());
-	}
-	
+
 	$nombre = $_POST["txtusuario"];
 	$pass = $_POST["txtpassword"];
 	
@@ -23,16 +13,16 @@ if(isset($_POST["txtusuario"])){
 	if(mysqli_num_rows($query) > 0)
 	{
 		$_SESSION['username'] = $nombre;
-		header('Location: ../index.php');
+		header('Location: ../../index.php');
 
 	}else{
-		echo "<script> alert('Usuario Invalido');window.location= '../index.php' </script>";
+		echo "<script> alert('Usuario Invalido'); window.location= '../../index.php'; </script>";
 	}		
 }
 
 // Action: Log-out
 if(isset($_POST["logout"])) {
 	unset($_SESSION["username"]);  
-	header('Location: ../index.php');
+	header('Location: ../../index.php');
 }
 ?>
