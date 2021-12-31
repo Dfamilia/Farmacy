@@ -45,9 +45,9 @@ include("../../conexion.php");
 
             <div class="collapse navbar-collapse" id="navbarsExample05">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link section active" href="">Inventario</a></li>
-                    <li class="nav-item"><a class="nav-link section" href="Modulo_de_vencimiento/BDVenc.php">Modulo de
-                            vencimiento</a></li>
+                    <li class="nav-item"><a class="nav-link section active" href="inventario.php">Inventario</a></li>
+                    <li class="nav-item"><a class="nav-link section"
+                            href="../vencimientos/vencimientos.php">Vencimientos</a></li>
                     <li class="nav-item"><a class="nav-link section" href="Registros/Menu principal.php">Registros</a>
                     </li>
                 </ul>
@@ -74,10 +74,7 @@ include("../../conexion.php");
 
     <div class="container actualizarInventario">
 
-
-        <h1>
-            <center>Actualizar Producto</center>
-        </h1>
+        <h2 style="text-align: center;">Actualizar Datos</h2>
 
         <?php
           include("../../conexion.php");
@@ -89,48 +86,52 @@ include("../../conexion.php");
         <form class="row gx-3 mx-auto mt-5" action="database.php" method="POST">
             <div class="col-md-3">
                 <label for="codigo" class="form-label">Codigo:</label>
-                <input class="form-control" type="text" id="codigo" name="codigo" value="<?php echo $datos['0'] ?>">
+                <input class="form-control" type="text" id="codigo" name="codigo" value="<?php echo $datos['0'] ?>"
+                    required>
             </div>
             <div class="col-md-9">
                 <label for="nombre" class="form-label">Nombre:</label>
-                <input class="form-control" type="text" id="nombre" name="nombre" value="<?php echo $datos['1'] ?>"><br>
+                <input class="form-control" type="text" id="nombre" name="nombre" value="<?php echo $datos['1'] ?>"
+                    required><br>
             </div>
             <div class="col-md-12">
                 <label for="descripcion" class="form-label">Descripcion:</label>
                 <input class="form-control" type="text" id="descripcion" name="descripcion"
-                    value="<?php echo $datos['2'] ?>"><br>
+                    value="<?php echo $datos['2'] ?>" required><br>
             </div>
             <div class="col-md-8">
                 <label for="suplidor" class="form-label">Suplidor:</label>
-                <input class="form-control" type="text" id="suplidor" name="suplidor"
-                    value="<?php echo $datos['3'] ?>"><br>
+                <input class="form-control" type="text" id="suplidor" name="suplidor" value="<?php echo $datos['3'] ?>"
+                    required><br>
             </div>
             <div class="col-md-2">
                 <label for="cantidad" class="form-label">Cantidad:</label>
                 <input class="form-control" type="number" id="cantidad" name="cantidad"
-                    value="<?php echo $datos['4'] ?>"><br>
+                    value="<?php echo $datos['4'] ?>" required><br>
             </div>
             <div class="col-md-2">
                 <label for="costo" class="form-label">Costo:</label>
-                <input class="form-control" type="number" id="costo" name="costo" value="<?php echo $datos['5'] ?>"><br>
+                <input class="form-control" type="number" id="costo" name="costo" value="<?php echo $datos['5'] ?>"
+                    required><br>
             </div>
             <div class="col-md-4">
                 <label for="entrada" class="form-label">Entrada:</label>
-                <input class="form-control" type="date" id="entrada" name="entrada"
-                    value="<?php echo $datos['6'] ?>"><br>
+                <input class="form-control" type="date" id="entrada" name="entrada" value="<?php echo $datos['6'] ?>"
+                    required><br>
             </div>
             <div class="col-md-4">
                 <label for="salida" class="form-label">Salida:</label>
-                <input class="form-control" type="date" id="salida" name="salida" value="<?php echo $datos['7'] ?>"><br>
+                <input class="form-control" type="date" id="salida" name="salida" value="<?php echo $datos['7'] ?>"
+                    required><br>
             </div>
             <div class="col-md-4">
                 <label for="expiracion" class="form-label">Expiración:</label>
                 <input class="form-control" type="date" id="expiracion" name="expiracion"
-                    value="<?php echo $datos['8'] ?>"><br>
+                    value="<?php echo $datos['8'] ?>" required><br>
             </div>
-            <input type="hidden" name="id" value="<?php echo $datos['9'] ?>"><br>
-            <br>
-            <div class="d-flex justify-content-between">
+            <input type="hidden" name="id" value="<?php echo $datos['9'] ?>">
+
+            <div class="d-flex justify-content-evenly mt-4">
                 <a class="btn btn-danger col-md-4" href="Inventario.php">Salir</a>
                 <button class="btn btn-success col-md-4" name="actualizarProducto" type="submit">
                     Actualizar Producto
